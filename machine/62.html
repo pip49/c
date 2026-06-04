@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보충설명: 유도전동기의 슬립(Slip)</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --primary-color: #4da6ff;
+            --accent-color: #e6f2ff;
+            --border-color: #e9ecef;
+            --btn-bg: #f1f3f5;
+            --btn-text: #495057;
+            --meta-link: #868e96;
+            --title-color: #0056b3;
+        }
+
+        /* 다크모드 전용 색상 세트 (메인 및 목차 페이지와 완벽 동기화) */
+        body.dark-mode {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --primary-color: #3793ff;
+            --accent-color: #2c3e50;
+            --border-color: #333333;
+            --btn-bg: #2d3238;
+            --btn-text: #ced4da;
+            --meta-link: #868e96;
+            --title-color: #4da6ff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 상단 컨트롤 영역 */
+        .top-bar {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+            padding-right: 5px;
+        }
+        .theme-btn {
+            background: none;
+            border: none;
+            font-size: 0.75rem;
+            color: var(--meta-link);
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 1.3rem;
+            color: var(--title-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+        }
+        p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 12px 0;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #dc3545;
+        }
+        body.dark-mode .highlight {
+            color: #ff6b6b;
+        }
+
+	.btn-back {
+            display: inline-block; width: 100%; text-align: center; background: var(--btn-bg);
+            color: var(--btn-text); padding: 12px 0; border-radius: 8px;
+            font-size: 0.9rem; font-weight: 600; text-decoration: none; margin-top: 15px; box-sizing: border-box;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <button onclick="toggleDarkMode()" id="theme-btn" class="theme-btn">◐ 다크모드</button>
+    </div>
+
+    <div class="container">
+        <h1>유도전동기의 슬립</h1>
+
+        <p>슬립(Slip)이란 유도전동기에서 <span class="highlight">회전자기장의 속도(동기속도)와 실제 회전자가 도는 속도의 차이</span>를 비율로 나타낸 핵심 개념입니다. 쉽게 말해 전기가 만들어낸 회전 속도를 자석(회전자)이 얼마나 미끄러지며 뒤따라가고 있는지를 나타내는 수치입니다.</p>
+
+        <p>만약 유도전동기의 회전자가 전기의 속도(동기속도)와 완전히 똑같이 돌게 된다면, 고정자와 회전자 사이에 상대적인 속도 차이가 사라져 전자유도 작용이 일어나지 않게 됩니다. 즉, 유도기전력이 발생하지 않아 전동기는 토크(회전력)를 잃고 멈추게 됩니다. 따라서 유도전동기는 구조적으로 반드시 슬립이 발생해야만 계속해서 돌아갈 수 있습니다.</p>
+
+        <p>전기기능사 필기시험에서 자주 출제되는 슬립의 범위와 상태별 값은 다음과 같습니다.</p>
+        <p>• 전동기가 멈춰 있을 때(정지 시): <span class="highlight">슬립 s = 1</span></p>
+        <p>• 전동기가 이상적으로 무부하 운전을 하여 동기속도로 돌 때: <span class="highlight">슬립 s = 0</span></p>
+        <p>• 일반적인 전동기 운전 상태의 범위: <span class="highlight">0 &lt; s &lt; 1</span></p>
+
+        <p>따라서 슬립이 크다는 것은 그만큼 실제 회전 속도가 떨어져 많이 미끄러지고 있다는 의미이며, 손실이 늘어나 효율이 저하되고 있음을 뜻합니다.</p>
+
+
+	<a href="../archive.html" class="btn-back">보관소로</a>
+
+    </div>
+
+    <script>
+        // 다크모드 토글 및 로컬 스토리지 저장 함수
+        function toggleDarkMode() {
+            const isDark = document.body.classList.toggle('dark-mode');
+            const btn = document.getElementById('theme-btn');
+
+            if (isDark) {
+                btn.innerText = "☀️ 라이트모드";
+                localStorage.setItem('theme', 'dark');
+            } else {
+                btn.innerText = "◐ 다크모드";
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // 페이지 진입 시 이전 테마 기록을 확인하여 자동 적용
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('theme-btn').innerText = "☀️ 라이트모드";
+            }
+        });
+    </script>
+</body>
+</html>
