@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지난 업데이트 보관소</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa; --card-bg: #ffffff; --text-color: #212529;
+            --primary-color: #4da6ff; --border-color: #e9ecef;
+            --btn-bg: #f1f3f5; --btn-text: #495057; --meta-link: #868e96;
+        }
+        body.dark-mode {
+            --bg-color: #121212; --card-bg: #1e1e1e; --text-color: #e0e0e0;
+            --primary-color: #3793ff; --border-color: #333333;
+            --btn-bg: #2d3238; --btn-text: #ced4da;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color); color: var(--text-color);
+            margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center;
+        }
+        .container {
+            width: 100%; max-width: 600px; background: var(--card-bg);
+            border-radius: 12px; padding: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color); box-sizing: border-box;
+        }
+        h1 { font-size: 1.3rem; margin-top: 0; border-bottom: 2px solid var(--primary-color); padding-bottom: 8px; }
+
+        /* 링크 리스트 스타일 */
+        .archive-list { list-style: none; padding: 0; margin: 20px 0; }
+        .archive-item { margin-bottom: 12px; }
+        .archive-link {
+            display: block; padding: 12px; background: var(--bg-color);
+            color: var(--text-color); text-decoration: none; border-radius: 8px;
+            border: 1px solid var(--border-color); font-size: 0.95rem; transition: all 0.2s;
+        }
+        .archive-link:hover { border-color: var(--primary-color); }
+        .date { font-size: 0.8rem; color: var(--meta-link); display: block; margin-bottom: 4px; }
+
+        .btn-back {
+            display: inline-block; width: 100%; text-align: center; background: var(--btn-bg);
+            color: var(--btn-text); padding: 12px 0; border-radius: 8px;
+            font-size: 0.9rem; font-weight: 600; text-decoration: none; margin-top: 15px; box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗄️ 지난 보충설명 보관소</h1>
+
+        <ul class="archive-list">
+            <li class="archive-item">
+                <span class="date">2026.06.05 업데이트</span>
+                <a href="./slip.html" class="archive-link">⚙️ 유도전동기의 슬립(Slip) 개념 정리</a>
+            </li>
+            <li class="archive-item">
+                <span class="date">2026.05.20 업데이트</span>
+                <a href="./theory/03.html" class="archive-link">⚡ 패러데이의 전자유도 법칙 설명</a>
+            </li>
+        </ul>
+
+        <a href="./index.html" class="btn-back">메인 퀴즈로 돌아가기</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+        });
+    </script>
+</body>
+</html>
