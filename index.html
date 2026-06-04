@@ -142,6 +142,11 @@
         <button class="filter-btn" onclick="filterSubject('facility')">전기설비 (71~100)</button>
     </div>
 
+    <div style="width: 100%; max-width: 600px; margin-bottom: 15px;">
+        <input type="text" id="search-input" onkeyup="searchQuiz()" placeholder="🔍 문제 또는 정답 키워드 검색..."
+               style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #dee2e6; font-size: 0.95rem; box-sizing: border-box;">
+    </div>
+
     <div class="global-actions">
         <button class="action-btn" onclick="toggleAll(true)">전체 정답 보기</button>
         <button class="action-btn" onclick="toggleAll(false)">전체 정답 숨기기</button>
@@ -317,6 +322,25 @@ function renderQuiz(filter = 'all') {
 
         // 초기 빌드
         renderQuiz();
+
+// 실시간 검색 함수
+        function searchQuiz() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const cards = document.querySelectorAll('.quiz-card');
+
+            cards.forEach(card => {
+                const question = card.querySelector('.quiz-question').innerText.toLowerCase();
+                const answer = card.querySelector('.quiz-answer-box').innerText.toLowerCase();
+
+                // 질문이나 정답에 검색어가 포함되어 있으면 보여주고, 없으면 숨김
+                if (question.includes(query) || answer.includes(query)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
     </script>
 </body>
 </html>
