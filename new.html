@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New! 키르히호프의 법칙 완벽 정리</title>
+    <title>보충설명: 키르히호프의 법칙(Kirchhoff's Law)</title>
     <style>
         :root {
             --bg-color: #f8f9fa;
@@ -12,8 +12,14 @@
             --text-color: #212529;
             --primary-color: #4da6ff;
             --accent-color: #e6f2ff;
-            --border-color: #dee2e6;
+            --border-color: #e9ecef;
+            --btn-bg: #f1f3f5;
+            --btn-text: #495057;
+            --meta-link: #868e96;
+            --title-color: #0056b3;
         }
+
+        /* 다크모드 전용 색상 세트 (기존 62.html과 완벽 동기화) */
         body.dark-mode {
             --bg-color: #121212;
             --card-bg: #1e1e1e;
@@ -21,9 +27,14 @@
             --primary-color: #3793ff;
             --accent-color: #2c3e50;
             --border-color: #333333;
+            --btn-bg: #2d3238;
+            --btn-text: #ced4da;
+            --meta-link: #868e96;
+            --title-color: #4da6ff;
         }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
@@ -32,144 +43,111 @@
             flex-direction: column;
             align-items: center;
         }
+
+        /* 상단 컨트롤 영역 */
+        .top-bar {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+            padding-right: 5px;
+        }
+        .theme-btn {
+            background: none;
+            border: none;
+            font-size: 0.75rem;
+            color: var(--meta-link);
+            cursor: pointer;
+            padding: 0;
+        }
+
         .container {
             width: 100%;
             max-width: 600px;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        h1 { font-size: 1.5rem; color: #0056b3; }
-        body.dark-mode h1 { color: #3793ff; }
-
-        .law-card {
             background: var(--card-bg);
             border-radius: 12px;
             padding: 20px;
-            margin-bottom: 20px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.04);
             border: 1px solid var(--border-color);
+            box-sizing: border-box;
         }
-        .law-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #dc3545;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        h1 {
+            font-size: 1.3rem;
+            color: var(--title-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
         }
+
+        /* 기전력/전류 공식 박스용 스타일 추가 */
         .formula-box {
             background-color: var(--accent-color);
-            padding: 15px;
+            padding: 12px;
             border-radius: 8px;
             font-family: "Courier New", Courier, monospace;
-            font-weight: bold;
-            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--title-color);
             text-align: center;
-            margin: 10px 0;
+            margin: 15px 0;
             border-left: 4px solid var(--primary-color);
         }
-        .summary-list {
-            padding-left: 20px;
+
+        p {
+            font-size: 0.95rem;
             line-height: 1.6;
-        }
-        .summary-list li {
-            margin-bottom: 8px;
+            margin: 12px 0;
         }
         .highlight {
             font-weight: bold;
-            color: #0056b3;
+            color: #dc3545;
         }
-        body.dark-mode .highlight { color: #4da6ff; }
+        body.dark-mode .highlight {
+            color: #ff6b6b;
+        }
 
-        .nav-links {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        .nav-links a {
-            color: #6c757d;
-            text-decoration: none;
-            font-size: 0.9rem;
+        .btn-back {
+            display: inline-block; width: 100%; text-align: center; background: var(--btn-bg);
+            color: var(--btn-text); padding: 12px 0; border-radius: 8px;
+            font-size: 0.9rem; font-weight: 600; text-decoration: none; margin-top: 15px; box-sizing: border-box;
         }
     </style>
 </head>
 <body>
 
+    <div class="top-bar">
+        <button onclick="toggleDarkMode()" id="theme-btn" class="theme-btn">◐ 다크모드</button>
+    </div>
+
     <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-            <a href="./index.html" style="font-size: 0.85rem; color: #007bff; text-decoration: none;">← 메인으로 돌아가기</a>
-            <button onclick="toggleDarkMode()" id="theme-btn" style="background: none; border: none; font-size: 0.75rem; color: #868e96; cursor: pointer;">◐ 다크모드</button>
-        </div>
+        <h1>키르히호프의 법칙</h1>
 
-        <header>
-            <h1>🔥 신규 업데이트: 키르히호프의 법칙</h1>
-            <p style="color: #6c757d; font-size: 0.9rem;">회로 해석의 기본! 제1법칙과 제2법칙 핵심 암기 노트</p>
-        </header>
+        <p>키르히호프의 법칙(Kirchhoff's law)은 복잡하게 얽혀 있는 전기회로에서 전하량과 에너지가 보존된다는 전제하에, 각 지점의 전류와 전압을 계산하기 위한 가장 핵심적인 법칙입니다. 시험에서는 제1법칙과 제2법칙의 정의와 성질을 짝지어 묻는 문제가 자주 출제됩니다.</p>
 
-        <div class="law-card">
-            <div class="law-title">⚡ 제1법칙 : 전류 법칙 (KCL)</div>
-            <p>회로망의 임의의 접속점(노드)에 <span class="highlight">유입되는 전류의 총합은 유출되는 전류의 총합과 같다</span>는 법칙입니다.</p>
+        <p>• <span class="highlight">제1법칙 : 전류 법칙 (KCL)</span></p>
+        <p>회로망의 임의의 접속점(노드)에 들어오는 유입 전류의 총합과 나가는 유출 전류의 총합은 서로 같다는 법칙입니다.</p>
+        <div class="formula-box">∑ 유입 전류 = ∑ 유출 전류</div>
+        <p>구조적 기반: 제1법칙은 물리적으로 전하가 도중에 사라지거나 새로 생겨나지 않는다는 <span class="highlight">전하량 보존 법칙</span>을 바탕으로 합니다.</p>
 
-            <div class="formula-box">
-                Σ I_in = Σ I_out &nbsp;(또는 Σ I = 0)
-            </div>
+        <p style="margin-top: 25px;">• <span class="highlight">제2법칙 : 전압 법칙 (KVL)</span></p>
+        <p>임의의 닫힌 회로(루프)를 한 바퀴 돌 때, 공급된 기전력의 총합은 소자에서 발생하는 전압 강하의 총합과 같다는 법칙입니다.</p>
+        <div class="formula-box">∑ 기전력 (E) = ∑ 전압 강하 (I × R)</div>
+        <p>구조적 기반: 제2법칙은 회로를 한 바퀴 돌며 전위 변화를 모두 합하면 원래대로 복귀한다는 <span class="highlight">에너지 보존 법칙</span>을 바탕으로 합니다.</p>
 
-            <ul class="summary-list">
-                <li>구조적 기반: <span class="highlight">전하량 보존 법칙</span></li>
-                <li>쉽게 기억하기: "들어온 전류만큼 나간다!" 물리적으로 전하가 도중에 사라지거나 새로 생겨나지 않기 때문입니다.</li>
-                <li>시험 출제 포인트: 접속점에서 미지의 전류 방향과 크기를 찾는 계산 문제로 주로 출제됩니다.</li>
-            </ul>
-        </div>
+        <p style="margin-top: 25px;">• <span class="highlight">시험 핵심 요약 팁</span></p>
+        <p>• 제1법칙 = <span class="highlight">전류</span> 법칙 = <span class="highlight">전하량</span> 보존 법칙</p>
+        <p>• 제2법칙 = <span class="highlight">전압</span> 법칙 = <span class="highlight">에너지</span> 보존 법칙</p>
 
-        <div class="law-card">
-            <div class="law-title">🔋 제2법칙 : 전압 법칙 (KVL)</div>
-            <p>임의의 닫힌 회로(루프) 내에서 <span class="highlight">기전력의 총합은 전압 강하의 총합과 같다</span>는 법칙입니다.</p>
-
-            <div class="formula-box">
-                Σ E = Σ (I × R) &nbsp;(또는 Σ V = 0)
-            </div>
-
-            <ul class="summary-list">
-                <li>구조적 기반: <span class="highlight">에너지 보존 법칙</span></li>
-                <li>쉽게 기억하기: "펌프로 올린 전압(기전력)만큼 소자(저항)를 지나며 전부 깎인다(전압강하)!" 한 바퀴 돌면 원래 전위로 복귀합니다.</li>
-                <li>시험 출제 포인트: 직렬 또는 복합 회로에서 특정 저항에 걸리는 전압을 구하거나 부호를 결정하는 연산 문제로 출제됩니다.</li>
-            </ul>
-        </div>
-
-        <div class="law-card" style="border-color: #ffc107;">
-            <div class="law-title" style="color: #ff9900;">💡 한 줄 요약 암기 팁</div>
-            <table style="width:100%; border-collapse: collapse; margin-top: 10px;">
-                <tr style="border-bottom: 1px solid var(--border-color);">
-                    <th style="padding: 8px; text-align: left;">구분</th>
-                    <th style="padding: 8px; text-align: left;">매칭 법칙</th>
-                    <th style="padding: 8px; text-align: left;">보존 대상</th>
-                </tr>
-                <tr style="border-bottom: 1px solid var(--border-color);">
-                    <td style="padding: 8px;"><b>제1법칙</b></td>
-                    <td style="padding: 8px;">전류 (KCL)</td>
-                    <td style="padding: 8px; color: #dc3545;"><b>전하량</b> 보존</td>
-                </tr>
-                <tr>
-                    <td style="padding: 8px;"><b>제2법칙</b></td>
-                    <td style="padding: 8px;">전압 (KVL)</td>
-                    <td style="padding: 8px; color: #dc3545;"><b>에너지</b> 보존</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="nav-links">
-            <a href="./index.html">🗄️ 메인으로</a>
-        </div>
+        <a href="./index.html" class="btn-back">메인으로 돌아가기</a>
     </div>
 
     <script>
-        // 다크모드 토글 및 로컬 스토리지 연동
+        // 다크모드 토글 및 로컬 스토리지 저장 함수
         function toggleDarkMode() {
             const isDark = document.body.classList.toggle('dark-mode');
             const btn = document.getElementById('theme-btn');
+
             if (isDark) {
                 btn.innerText = "☀️ 라이트모드";
                 localStorage.setItem('theme', 'dark');
@@ -179,6 +157,7 @@
             }
         }
 
+        // 페이지 진입 시 이전 테마 기록을 확인하여 자동 적용
         document.addEventListener("DOMContentLoaded", () => {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
