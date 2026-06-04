@@ -308,32 +308,39 @@
         });
 
 
+
 function renderQuiz(filter = 'all') {
             const listEl = document.getElementById('quiz-list');
             listEl.innerHTML = '';
 
-            data.forEach(item => {
+            // [수정] 전체 배열에서의 순서(전체 일련번호)를 관리하기 위해 변수 설정
+            let globalIdx = 0;
+
+            data.forEach((item) => {
+                globalIdx++; // 데이터가 하나씩 돌 때마다 번호를 1씩 증가시킵니다.
+                const displayNo = globalIdx; // 이 번호가 화면에 보일 자동 번호입니다.
+
                 if (filter !== 'all' && item.cat !== filter) return;
 
                 const card = document.createElement('div');
                 card.className = 'quiz-card';
-                card.id = `card-${item.no}`;
+                // item.no 대신 자동 계산된 displayNo를 사용해 id 부여
+                card.id = `card-${displayNo}`;
 
-                // 카드 자체를 클릭하면 정답이 토글되되, 링크 클릭 시에는 토글되지 않도록 설정
                 card.onclick = (e) => {
                     if (e.target.tagName !== 'A' && e.target.closest('.link-btn') === null) {
                         card.classList.toggle('revealed');
                     }
                 };
 
-                // 링크 데이터가 있으면 버튼 HTML을 생성하고, 없으면 빈 칸 처리
                 const linkHtml = item.link
-                    ? `<a href="${item.link}" target="_blank" class="link-btn" style="display:inline-block; margin-top:8px; font-size:0.8rem; color:#007bff; text-decoration:none;">🔗 보충 설명 보기</a>`
+                    ? `<a href="${item.link}" class=\"link-btn\" style="display:inline-block; margin-top:8px; font-size:0.8rem; color:#007bff; text-decoration:none;">🔗 보충 설명 보기</a>`
                     : '';
 
+                // [수정] 아래 `${item.no}`가 있던 자리를 `${displayNo}`로 교체했습니다.
                 card.innerHTML = `
                     <div class="quiz-header">
-                        <span>Q. ${item.no}</span>
+                        <span>Q. ${displayNo}</span>
                         <span>[${catNames[item.cat]}]</span>
                     </div>
                     <div class="quiz-question">${item.q}</div>
