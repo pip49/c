@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보충설명: 한눈에 이해하는 직류기 핵심 요약</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --primary-color: #212529;
+            --accent-color: #f1f3f5;
+            --border-color: #dee2e6;
+            --btn-bg: #212529;
+            --btn-text: #ffffff;
+            --meta-link: #868e96;
+            --title-color: #212529;
+        }
+
+        /* 다크모드 설정 */
+        body.dark-mode {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --primary-color: #e0e0e0;
+            --accent-color: #2c2c2c;
+            --border-color: #333333;
+            --btn-bg: #ced4da;
+            --btn-text: #121212;
+            --meta-link: #868e96;
+            --title-color: #e0e0e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .top-bar {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+        .theme-btn {
+            background: none;
+            border: none;
+            font-size: 0.75rem;
+            color: var(--meta-link);
+            cursor: pointer;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 1.3rem;
+            color: var(--title-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .visual-box {
+            background-color: var(--accent-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .grid-item {
+            background: var(--card-bg);
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #dc3545;
+        }
+        body.dark-mode .highlight {
+            color: #ff6b6b;
+        }
+
+        .btn-back {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            padding: 12px 0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <button onclick="toggleDarkMode()" id="theme-btn" class="theme-btn">◐ 다크모드</button>
+    </div>
+
+    <div class="container">
+        <h1>⚙️ 핵심 요약: 직류기(DC Machine) 발전 및 변환 구조</h1>
+
+        <div class="section-title">🧱 1. 직류기의 3대 구성 요소</div>
+        <p>기출문제에서 "직류기의 구성 요소가 아닌 것은?" 형태로 매우 자주 출제되는 기본 기계 구조입니다.</p>
+        <div class="visual-box">
+            <div class="grid-3">
+                <div class="grid-item">
+                    <b>계자 (Field)</b><br>🔽<br>자기장을 형성<br>(<span class="highlight">자속 만들기</span>)
+                </div>
+                <div class="grid-item">
+                    <b>전기자 (Armature)</b><br>🔽<br>자속을 끊어<br>(<span class="highlight">기전력 생산</span>)
+                </div>
+                <div class="grid-item">
+                    <b>정류자 (Commutator)</b><br>🔽<br>유도된 교류를<br>(<span class="highlight">직류로 변환</span>)
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">⚔️ 2. 전기자 권선법 비교 (중권 vs 파권)</div>
+        <p>전선(코일)을 어떻게 감느냐에 따라 병렬 회로수(a)가 결정되며, 용도가 완전히 갈립니다.</p>
+        <div class="visual-box">
+            <div class="grid-2">
+                <div class="grid-item">
+                    <b>중권 (병렬권)</b><br>🔽<br>
+                    회로수 = 극수 (<span class="highlight">a = P</span>)<br>
+                    브러시수 = 극수<br>
+                    <span class="highlight">저전압 대전류</span> 용도
+                </div>
+                <div class="grid-item">
+                    <b>파권 (직렬권)</b><br>🔽<br>
+                    회로수 무조건 <span class="highlight">a = 2</span><br>
+                    브러시수 무조건 2개<br>
+                    <span class="highlight">고전압 소전류</span> 용도
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">🛡️ 3. 전기자 반작용과 정류 대책</div>
+        <p>전기자에 전류가 흐르면서 주자속을 방해하는 불량 현상(반작용)을 해결하는 자재 장치입니다.</p>
+        <div class="visual-box">
+            <div style="line-height: 1.7;">
+                • <span class="highlight">보상권선:</span> 전기자 반작용을 방지하는 <span class="highlight">가장 확실하고 강력한 대책</span> (전기자 전류와 반대 방향 전류 공급)<br>
+                • <span class="highlight">보극:</span> 정류 작용 시 불꽃 발생을 억제하고 <span class="highlight">정류 주기를 개선</span>하는 보조 자극
+            </div>
+        </div>
+
+        <div class="section-title">🚨 4. 직권전동기의 독특한 토크와 속도 특성</div>
+        <p>계자 권선과 전기자 권선이 직렬로 연결된 전동기로, 시험 유의사항 지문으로 단골 출제됩니다.</p>
+        <div class="visual-box">
+            <div style="line-height: 1.6;">
+                • <b>토크 특성:</b> 토크(T)는 전류의 <b>제곱($I^2$)에 비례</b>하므로, 기동할 때 힘이 매우 강력합니다.<br>
+                • <b>속도 특성:</b> 부하가 없으면(무부하) 속도가 위험 수위까지 무한대로 급상승합니다.<br>
+                • <span class="highlight">★ 기출 정답 팁:</span> 위험 속도 도달을 막기 위해 직권전동기는 절대 벨트를 걸고 운전하지 않고, 반드시 <b>기어나 체인으로 직접 연결</b>하여 구동해야 합니다.
+            </div>
+        </div>
+
+        <a href="../archive.html" class="btn-back">보관소로 이동</a>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            const isDark = document.body.classList.toggle('dark-mode');
+            const btn = document.getElementById('theme-btn');
+            if (isDark) {
+                btn.innerText = "☀️ 라이트모드";
+                localStorage.setItem('theme', 'dark');
+            } else {
+                btn.innerText = "◐ 다크모드";
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('theme-btn').innerText = "☀️ 라이트모드";
+            }
+        });
+    </script>
+</body>
+</html>

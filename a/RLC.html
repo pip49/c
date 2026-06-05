@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보충설명: 한눈에 이해하는 RLC 회로 및 공진 현상</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --primary-color: #212529;
+            --accent-color: #f1f3f5;
+            --border-color: #dee2e6;
+            --btn-bg: #212529;
+            --btn-text: #ffffff;
+            --meta-link: #868e96;
+            --title-color: #212529;
+        }
+
+        /* 다크모드 설정 */
+        body.dark-mode {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --primary-color: #e0e0e0;
+            --accent-color: #2c2c2c;
+            --border-color: #333333;
+            --btn-bg: #ced4da;
+            --btn-text: #121212;
+            --meta-link: #868e96;
+            --title-color: #e0e0e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .top-bar {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+        .theme-btn {
+            background: none;
+            border: none;
+            font-size: 0.75rem;
+            color: var(--meta-link);
+            cursor: pointer;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 1.3rem;
+            color: var(--title-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .visual-box {
+            background-color: var(--accent-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .grid-item {
+            background: var(--card-bg);
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #dc3545;
+        }
+        body.dark-mode .highlight {
+            color: #ff6b6b;
+        }
+
+        .btn-back {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            padding: 12px 0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <button onclick="toggleDarkMode()" id="theme-btn" class="theme-btn">◐ 다크모드</button>
+    </div>
+
+    <div class="container">
+        <h1>📉 핵심 요약: RLC 교류회로 및 공진 현상</h1>
+
+        <div class="section-title">🔄 1. 교류 소자 3인방과 위상 관계</div>
+        <p>저항(R), 인덕터(L), 콘덴서(C)에 교류가 흐를 때 전압과 전류 사이에 생기는 위상차 규칙입니다.</p>
+        <div class="visual-box">
+            <div style="line-height: 1.7;">
+                • <b>R (저항):</b> 전압과 전류의 위상이 완전히 똑같음 ➡️ <span class="highlight">동상 (同相)</span><br>
+                • <b>L (인덕터/코일):</b> 전류가 전압보다 90도 늦게 흐름 ➡️ <span class="highlight">지상 전류 (늦은 전류)</span><br>
+                • <b>C (콘덴서/커패시터):</b> 전류가 전압보다 90도 빠르게 흐름 ➡️ <span class="highlight">진상 전류 (앞선 전류)</span>
+            </div>
+            <div style="margin-top: 10px; font-size: 0.8rem; color: var(--meta-link); text-align: center;">
+                💡 암기 팁: <b>L</b>은 느리니까 <b>'늦은(지상)'</b>, <b>C</b>는 전진하니까 <b>'앞선(진상)'</b>
+            </div>
+        </div>
+
+        <div class="section-title">⚡ 2. 공진(Resonance)의 핵심 조건</div>
+        <p>회로에서 유도 리액턴스($X_L$)와 용량 리액턴스($X_C$)의 크기가 같아져 서로의 효과를 완전히 상쇄시키는 상태입니다.</p>
+        <div class="visual-box">
+            <div style="text-align: center; font-size: 1.1rem; font-weight: bold; margin-bottom: 8px;">
+                공진 조건: <span class="highlight">X_L = X_C</span>
+            </div>
+            • <b>리액턴스 합산 결과:</b> $X_L - X_C = 0$이 되므로 회로에는 순수한 **저항(R)**만 남게 됩니다.<br>
+            • <b>역률 상태:</b> 무효전력이 전부 사라지므로 역률은 항상 가장 이상적인 상태인 <b>$cosθ = 1$ (<span class="highlight">100%</span>)</b>이 됩니다.
+        </div>
+
+        <div class="section-title">⚖️ 3. 직렬 공진 vs 병렬 공진 특성 비교</div>
+        <p>시험 문제에서 단어 바꾸기로 가장 오답을 많이 유도하는 '최대/최소' 매칭 파트입니다. 반대 현상임을 기억하세요.</p>
+        <div class="visual-box">
+            <div class="grid-2">
+                <div class="grid-item">
+                    <b>직렬 공진 (Series)</b><br>🔽<br>
+                    임피던스(Z) ➡️ <span class="highlight">최소 ($Z=R$)</span><br>
+                    전류(I) ➡️ <span class="highlight">최대</span><br>
+                    전압 확대기 역할
+                </div>
+                <div class="grid-item">
+                    <b>병렬 공진 (Parallel)</b><br>🔽<br>
+                    임피던스(Z) ➡️ <span class="highlight">최대 ($Z=R$)</span><br>
+                    전류(I) ➡️ <span class="highlight">최소</span><br>
+                    전류 확대기 역할
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">🌊 4. 왜형파(찌그러진 파형)의 성분 구성</div>
+        <p>깨끗한 정현파가 아니라 찌그러진 교류 파형(왜형파)이 가질 수 있는 성분 분해 정의입니다.</p>
+        <div class="visual-box">
+            <div style="text-align: center; font-weight: bold; padding: 6px; border-bottom: 1px solid var(--border-color); margin-bottom: 8px;">
+                왜형파 = 직류분 + 기본파 + 고조파
+            </div>
+            <div style="line-height: 1.6;">
+                • <b>직류분:</b> 주파수가 0인 평평한 성분<br>
+                • <b>기본파:</b> 원래 깨끗하게 내보내려 했던 정상 주파수 성분<br>
+                • <b>고조파:</b> 기본파의 2배, 3배 등의 정수배 주파수를 가진 잡음 성분
+            </div>
+        </div>
+
+        <a href="../archive.html" class="btn-back">🗄️ 다른 보충설명 보러가기 (보관소)</a>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            const isDark = document.body.classList.toggle('dark-mode');
+            const btn = document.getElementById('theme-btn');
+            if (isDark) {
+                btn.innerText = "☀️ 라이트모드";
+                localStorage.setItem('theme', 'dark');
+            } else {
+                btn.innerText = "◐ 다크모드";
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('theme-btn').innerText = "☀️ 라이트모드";
+            }
+        });
+    </script>
+</body>
+</html>
