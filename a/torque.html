@@ -208,10 +208,10 @@
             const isDark = document.body.classList.toggle('dark-mode');
             const btn = document.getElementById('theme-btn');
             if (isDark) {
-                btn.innerText = "라이트모드 복귀";
+                btn.innerText = "라이트모드";
                 localStorage.setItem('theme', 'dark');
             } else {
-                btn.innerText = "차분한 다크모드 변환";
+                btn.innerText = "다크모드";
                 localStorage.setItem('theme', 'light');
             }
         }
