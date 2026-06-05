@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보충설명: 동기기 핵심 기출 이론 총정리</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --primary-color: #212529; /* 파란색 대신 검은색 */
+            --accent-color: #e9ecef;   /* 차분한 회색 배경 */
+            --border-color: #e9ecef;
+            --btn-bg: #212529;
+            --btn-text: #ffffff;
+            --meta-link: #868e96;
+            --title-color: #212529;
+        }
+
+        /* 다크모드 전용 색상 세트 */
+        body.dark-mode {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --primary-color: #e0e0e0;
+            --accent-color: #2c2c2c;
+            --border-color: #333333;
+            --btn-bg: #ced4da;
+            --btn-text: #121212;
+            --meta-link: #868e96;
+            --title-color: #e0e0e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 상단 컨트롤 영역 */
+        .top-bar {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+            padding-right: 5px;
+        }
+        .theme-btn {
+            background: none;
+            border: none;
+            font-size: 0.75rem;
+            color: var(--meta-link);
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 1.3rem;
+            color: var(--title-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+        }
+        p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 12px 0;
+        }
+
+        /* 수식 및 강조 박스 */
+        .formula-box {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* 빨간색 강조 스타일 */
+        .highlight {
+            font-weight: bold;
+            color: #dc3545;
+        }
+        body.dark-mode .highlight {
+            color: #ff6b6b;
+        }
+
+        .btn-back {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            padding: 12px 0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <button onclick="toggleDarkMode()" id="theme-btn" class="theme-btn">◐ 다크모드</button>
+    </div>
+
+    <div class="container">
+        <h1>⚙️ 보충설명: 동기기 핵심 기출 이론 총정리</h1>
+
+        <p>전기기기 과목에서 일정한 속도로 회전하는 '동기기(동기발전기 및 동기전동기)'의 출제 비중이 높은 3대 핵심 테마를 요약했습니다.</p>
+
+        <p style="margin-top: 25px;">• <span class="highlight">1. 동기속도(Ns) 계산 공식</span></p>
+        <p>발전기의 극수(P)와 주파수(f)가 주어졌을 때 일정한 회전 속도를 구하는 공식으로, 계산과 단답형 모두 무조건 출제됩니다.</p>
+        <div class="formula-box">
+            • 동기속도 공식: <span class="highlight">Ns = 120f / P [rpm]</span><br>
+            • 예시 수치 암기: 4극 60Hz 기준 동기속도는 항상 <span class="highlight">1,800 rpm</span><br>
+            • 예시 수치 암기: 2극 60Hz 기준 동기속도는 항상 <span class="highlight">3,600 rpm</span>
+        </div>
+
+        <p style="margin-top: 25px;">• <span class="highlight">2. 난조(Hunting) 현상과 대책</span></p>
+        <p>부하가 급격히 변할 때 회전자가 동기속도를 맞추지 못하고 진동하는 현상(난조)과 이를 막기 위한 필수 자재 규정입니다.</p>
+        <div class="formula-box">
+            • 난조 발생 원인: 부하의 급격한 변동, 원동기의 토크 리플, 관성모멘트 부족<br>
+            • 확실한 난조 방지 대책: 자극편 자르는 면에 <span class="highlight">제동권선(Damper winding)</span>을 설치<br>
+            • 제동권선의 역할: 기동 시에는 <span class="highlight">기동 토크를 발생</span>시키고, 운전 중에는 <span class="highlight">난조를 방지</span>함
+        </div>
+
+        <p style="margin-top: 25px;">• <span class="highlight">3. 동기조상기와 위상특성곡선 (V곡선)</span></p>
+        <p>동기전동기를 무부하로 운전하면서 계자전류(If)를 조절해 선로의 역률을 마음대로 조정하는 기구와 그 특성 그래프 법칙입니다.</p>
+        <div class="formula-box">
+            • <span class="highlight">과여자 (계자전류 세게)</span>: 선로에서 <span class="highlight">콘덴서(C)</span>로 작용하여 진상 전류를 흘림 (역률 개선)<br>
+            • <span class="highlight">부족여자 (계자전류 약하게)</span>: 선로에서 <span class="highlight">리액터(L)</span>로 작용하여 지상 전류를 흘림<br>
+            • 위상특성곡선(V곡선)에서 출력이 일정할 때 공급전압이 같다면, 역률이 가장 좋은(cosθ = 1) 정점 상태일 때 <span class="highlight">전기자 전류(Ia)는 최소</span>가 됨
+        </div>
+
+        <a href="../archive.html" class="btn-back">🗄️ 다른 보충설명 보러가기 (보관소)</a>
+    </div>
+
+    <script>
+        // 다크모드 토글 및 로컬 스토리지 저장 함수
+        function toggleDarkMode() {
+            const isDark = document.body.classList.toggle('dark-mode');
+            const btn = document.getElementById('theme-btn');
+
+            if (isDark) {
+                btn.innerText = "☀️ 라이트모드";
+                localStorage.setItem('theme', 'dark');
+            } else {
+                btn.innerText = "◐ 다크모드";
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // 페이지 진입 시 이전 테마 기록을 확인하여 자동 적용
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('theme-btn').innerText = "☀️ 라이트모드";
+            }
+        });
+    </script>
+</body>
+</html>
