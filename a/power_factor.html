@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보충설명: 한눈에 이해하는 전력의 종류와 역률</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --primary-color: #212529;
+            --accent-color: #f1f3f5;
+            --border-color: #dee2e6;
+            --btn-bg: #212529;
+            --btn-text: #ffffff;
+            --meta-link: #868e96;
+            --title-color: #212529;
+        }
+
+        /* 다크모드 설정 */
+        body.dark-mode {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --primary-color: #e0e0e0;
+            --accent-color: #2c2c2c;
+            --border-color: #333333;
+            --btn-bg: #ced4da;
+            --btn-text: #121212;
+            --meta-link: #868e96;
+            --title-color: #e0e0e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .top-bar {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+        .theme-btn {
+            background: none;
+            border: none;
+            font-size: 0.75rem;
+            color: var(--meta-link);
+            cursor: pointer;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 1.3rem;
+            color: var(--title-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .visual-box {
+            background-color: var(--accent-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .formula {
+            font-size: 1.15rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 8px 0;
+            padding: 6px;
+            border-top: 1px dashed var(--border-color);
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .grid-item {
+            background: var(--card-bg);
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #dc3545;
+        }
+        body.dark-mode .highlight {
+            color: #ff6b6b;
+        }
+
+        .btn-back {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            padding: 12px 0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <button onclick="toggleDarkMode()" id="theme-btn" class="theme-btn">차분한 다크모드 변환</button>
+    </div>
+
+    <div class="container">
+        <h1>개념 해설: 교류 전력의 3가지 종류 및 역률의 이해</h1>
+
+        <div class="section-title">1. 교류 회로에서의 3대 전력 정의</div>
+        <p>직류와 달리 교류에서는 위상차 때문에 총 공급 전력과 실제 쓰이는 전력이 분리됩니다.</p>
+        <div class="visual-box">
+            <div style="line-height: 1.7;">
+                • <b>피상전력 (Apparent Power):</b> 발전기나 한전에서 회로에 공급해 주는 총 전력입니다.<br>
+                단위: [VA] (볼트암페어) / 공식: P = V × I<br><br>
+                • <b>유효전력 (Active Power):</b> 기기에 공급된 전력 중 실제로 열이나 기계적 일로 소비된 진짜 전력입니다.<br>
+                단위: [W] (와트) / 공식: P = V × I × cosθ<br><br>
+                • <b>무효전력 (Reactive Power):</b> 인덕터(L)나 콘덴서(C) 성분 때문에 일을 하지 않고 회로를 왔다 갔다 하며 사라지는 가짜 전력입니다.<br>
+                단위: [Var] (바) / 공식: Pr = V × I × sinθ
+            </div>
+        </div>
+
+        <div class="section-title">2. 직관적인 전력 비유 카드 (맥주와 거품)</div>
+        <p>이해를 돕기 위해 전력의 관계를 일상적인 사물에 비유한 구조적 레이아웃입니다.</p>
+        <div class="visual-box">
+            <div class="grid-2">
+                <div class="grid-item">
+                    <b>유효전력 (진짜)</b><br>🔽<br>컵에 담긴 <span class="highlight">맥주 액체</span><br>실제로 마실 수 있는 양
+                </div>
+                <div class="grid-item">
+                    <b>무효전력 (가짜)</b><br>🔽<br>위에 쌓인 <span class="highlight">맥주 거품</span><br>부피는 차지하지만 못 마심
+                </div>
+            </div>
+            <div style="margin-top: 12px; line-height: 1.6; padding: 8px; background: var(--card-bg); border-radius: 4px; border: 1px solid var(--border-color); text-align: center;">
+                <b>피상전력(총량) = 맥주 액체(유효) + 맥주 거품(무효)</b><br>
+                수학적 관계: 피상전력 = √(유효전력² + 무효전력²)
+            </div>
+        </div>
+
+        <div class="section-title">3. 역률 (Power Factor, cosθ)의 개념</div>
+        <p>전체 공급된 전력(피상) 중에서 실제로 일한 전력(유효)이 차지하는 비율, 즉 <b>'전력의 사용 효율'</b>을 뜻합니다.</p>
+        <div class="visual-box">
+            <div class="formula">역률 (cosθ) = 유효전력 / 피상전력</div>
+            <div style="line-height: 1.6;">
+                • 역률이 1(100%)에 가까울수록 거품(무효전력)이 거의 없고 공급된 전력을 아주 알차게 잘 쓰고 있다는 의미입니다.<br>
+                • <span class="highlight">역률이 저하되면(나빠지면):</span> 선로에 전류가 많이 흘러 전력 손실이 증가하고 전압강하가 커집니다.
+            </div>
+        </div>
+
+        <div class="section-title">4. 시험 단골 유형: 역률 개선 대책 (전력용 콘덴서)</div>
+        <p>시험지 지문 및 계산 문제로 단골 출제되는 역률 개선 핵심 지식입니다.</p>
+        <div class="visual-box">
+            • <b>원인:</b> 모터(전동기)나 변압기 같은 기기들은 내부가 코일(L 성분)로 감겨 있어서 전류를 늦추는 지상 무효전력을 발생시키고, 이 때문에 역률이 떨어집니다.<br><br>
+            • <b>해결 대책:</b> 부하와 <span class="highlight">병렬로 전력용 콘덴서(SC)</span>를 설치합니다. 콘덴서는 진상 무효전력을 공급하므로, 코일의 지상 무효전력을 상쇄시켜 역률을 높여줍니다.<br><br>
+            • <span class="highlight">★ 기출 정답 팁:</span> 콘덴서 용량[kVAr]을 구하는 공식을 고르는 문제가 자주 나옵니다.<br>
+            공식: <b>Q = P × (tanθ₁ - tanθ₂)</b> (P는 유효전력)
+        </div>
+
+        <a href="./index.html" class="btn-back">메인 시험지 화면으로 이동</a>
+    </div>
+
+    <script {
+        function toggleDarkMode() {
+            const isDark = document.body.classList.toggle('dark-mode');
+            const btn = document.getElementById('theme-btn');
+            if (isDark) {
+                btn.innerText = "라이트모드 복귀";
+                localStorage.setItem('theme', 'dark');
+            } else {
+                btn.innerText = "차분한 다크모드 변환";
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('theme-btn').innerText = "라이트모드 복귀";
+            }
+        });
+    </script>
+</body>
+</html>

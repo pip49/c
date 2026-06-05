@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보충설명: 한눈에 이해하는 토크(Torque)의 개념</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --primary-color: #212529;
+            --accent-color: #f1f3f5;
+            --border-color: #dee2e6;
+            --btn-bg: #212529;
+            --btn-text: #ffffff;
+            --meta-link: #868e96;
+            --title-color: #212529;
+        }
+
+        /* 다크모드 설정 */
+        body.dark-mode {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --primary-color: #e0e0e0;
+            --accent-color: #2c2c2c;
+            --border-color: #333333;
+            --btn-bg: #ced4da;
+            --btn-text: #121212;
+            --meta-link: #868e96;
+            --title-color: #e0e0e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .top-bar {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+        .theme-btn {
+            background: none;
+            border: none;
+            font-size: 0.75rem;
+            color: var(--meta-link);
+            cursor: pointer;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 1.3rem;
+            color: var(--title-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .visual-box {
+            background-color: var(--accent-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .formula {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
+            padding: 8px;
+            border-top: 1px dashed var(--border-color);
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .grid-item {
+            background: var(--card-bg);
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #dc3545;
+        }
+        body.dark-mode .highlight {
+            color: #ff6b6b;
+        }
+
+        .btn-back {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            padding: 12px 0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <button onclick="toggleDarkMode()" id="theme-btn" class="theme-btn">차분한 다크모드 변환</button>
+    </div>
+
+    <div class="container">
+        <h1>개념 해설: 토크(Torque, T)의 정의와 전동기별 특성</h1>
+
+        <div class="section-title">1. 토크(Torque)란 무엇인가?</div>
+        <p>토크는 물체를 회전시키려고 하는 힘의 크기를 의미하며, 쉽게 말해 전동기가 물건을 돌리는 실제적인 <b>'회전력(돌리는 힘)'</b>입니다.</p>
+        <div class="visual-box">
+            • <b>단위 읽는 법:</b> 주로 [N·m] (뉴턴 미터) 또는 [kgf·m] (킬로그램포스 미터)를 사용합니다.<br>
+            • <b>직관적 이해:</b> 자동차의 마력이 '최고 속도'와 관련이 있다면, 토크는 '치고 나가는 순간적인 힘(물건을 끌어당기는 힘)'과 관련이 깊습니다. 전동기에서는 기동할 때 가하는 초기 힘이 매우 중요합니다.
+        </div>
+
+        <div class="section-title">2. 전동기 출력과 속도, 토크의 관계 공식</div>
+        <p>시험에 계산 문제로 무조건 출제되는 정형화된 정답 산출 공식입니다. 속도와 토크의 반비례 관계를 파악하는 것이 핵심입니다.</p>
+        <div class="visual-box">
+            <div class="formula">T = 0.975 × (P / N) [kgf·m]</div>
+            <div style="line-height: 1.6; margin-top: 5px;">
+                • <b>P (전동기 출력):</b> 출력 값이 커질수록 당연히 토크(힘)는 <span class="highlight">강해집니다</span> (정비례).<br>
+                • <b>N (회전 속도):</b> 전동기 속도가 빨라질수록 토크(힘)는 오히려 <span class="highlight">약해집니다</span> (반비례).
+            </div>
+        </div>
+
+        <div class="section-title">3. 시험 단골 유형: 직권전동기 vs 분권전동기 토크 비교</div>
+        <p>전류(I) 변화에 따라 회전력이 얼마나 급격하게 변하는지에 대한 비교 카드입니다.</p>
+        <div class="visual-box">
+            <div class="grid-2">
+                <div class="grid-item">
+                    <b>직권전동기</b><br>전류의 제곱 비례<br>이동<br>
+                    <span class="highlight">T ∝ I²</span><br>
+                    전류가 2배 되면<br>힘은 4배로 급상승<br>
+                    (초기 기동 힘이 매우 강력)
+                </div>
+                <div class="grid-item">
+                    <b>분권전동기</b><br>전류의 단순 비례<br>이동<br>
+                    <span class="highlight">T ∝ I</span><br>
+                    전류가 2배 되면<br>힘도 일정하게 2배 상승<br>
+                    (정속도 및 완만한 힘 제어)
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">4. 직류 전동기 토크 크기 순서 배열 암기법</div>
+        <p>지문 중에서 "토크가 큰 순서대로 바르게 나열한 것은?"이라는 문제 유형을 즉시 맞춰낼 수 있는 결론 지식입니다.</p>
+        <div class="visual-box">
+            <div style="text-align: center; font-size: 1.1rem; font-weight: bold; margin-bottom: 8px;">
+                <span class="highlight">직권 > 가동복권 > 분권 > 차동복권</span>
+            </div>
+            • 구조적 암기 공식의 앞 글자만 딴 팁: <b>'직가분차'</b> 순서로 외우시면 시험장에서 혼선 없이 정답 지문을 바로 골라낼 수 있습니다.
+        </div>
+
+        <a href="../archive.html" class="btn-back">보관소로 이동</a>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            const isDark = document.body.classList.toggle('dark-mode');
+            const btn = document.getElementById('theme-btn');
+            if (isDark) {
+                btn.innerText = "라이트모드 복귀";
+                localStorage.setItem('theme', 'dark');
+            } else {
+                btn.innerText = "차분한 다크모드 변환";
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('theme-btn').innerText = "라이트모드 복귀";
+            }
+        });
+    </script>
+</body>
+</html>
