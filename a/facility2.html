@@ -10,13 +10,13 @@
             --bg-color: #f8f9fa;
             --card-bg: #ffffff;
             --text-color: #212529;
-            --primary-color: #4da6ff;
-            --accent-color: #e6f2ff;
+            --primary-color: #212529; /* 파란색 대신 검은색으로 변경 */
+            --accent-color: #e9ecef;   /* 연한 파란색 배경을 차분한 회색으로 변경 */
             --border-color: #e9ecef;
-            --btn-bg: #f1f3f5;
-            --btn-text: #495057;
+            --btn-bg: #212529;         /* 하단 버튼 배경을 검은색으로 변경 */
+            --btn-text: #ffffff;       /* 하단 버튼 글자색을 흰색으로 변경 */
             --meta-link: #868e96;
-            --title-color: #0056b3;
+            --title-color: #212529;    /* 대제목 색상을 검은색으로 변경 */
         }
 
         /* 다크모드 전용 색상 세트 (기존 디자인과 완벽 동기화) */
@@ -24,13 +24,13 @@
             --bg-color: #121212;
             --card-bg: #1e1e1e;
             --text-color: #e0e0e0;
-            --primary-color: #3793ff;
-            --accent-color: #2c3e50;
+            --primary-color: #e0e0e0; /* 다크모드 시 파란색 대신 밝은 회색/흰색 */
+            --accent-color: #2c2c2c;   /* 다크모드에 맞는 어두운 회색 배경 */
             --border-color: #333333;
-            --btn-bg: #2d3238;
-            --btn-text: #ced4da;
+            --btn-bg: #ced4da;         /* 다크모드 시 버튼 배경 */
+            --btn-text: #121212;       /* 다크모드 시 버튼 글자색 */
             --meta-link: #868e96;
-            --title-color: #4da6ff;
+            --title-color: #e0e0e0;    /* 대제목 색상을 밝은 회색으로 변경 */
         }
 
         body {
@@ -80,25 +80,24 @@
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 8px;
         }
-
-        /* 핵심 수치 강조 박스용 스타일 */
-        .formula-box {
-            background-color: var(--accent-color);
-            padding: 12px;
-            border-radius: 8px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            font-weight: 700;
-            color: var(--title-color);
-            text-align: left;
-            margin: 15px 0;
-            border-left: 4px solid var(--primary-color);
-        }
-
         p {
             font-size: 0.95rem;
             line-height: 1.6;
             margin: 12px 0;
         }
+
+        /* 수식 및 강조 박스 */
+        .formula-box {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* 빨간색 강조 스타일 유지 */
         .highlight {
             font-weight: bold;
             color: #dc3545;
@@ -108,9 +107,17 @@
         }
 
         .btn-back {
-            display: inline-block; width: 100%; text-align: center; background: var(--btn-bg);
-            color: var(--btn-text); padding: 12px 0; border-radius: 8px;
-            font-size: 0.9rem; font-weight: 600; text-decoration: none; margin-top: 15px; box-sizing: border-box;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            padding: 12px 0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 25px;
         }
     </style>
 </head>
@@ -121,34 +128,29 @@
     </div>
 
     <div class="container">
-        <h1>전기설비 필수 수치 2탄</h1>
+        <h1>📐 전기설비 필수 암기 수치 2탄 (관 굵기 및 특수장소)</h1>
 
-        <p>전기설비 공사에서 전선관 내부에 전선을 넣을 때의 <span class="highlight">단면적 제한 비율</span>과 위험물/폭발성 분진이 있는 <span class="highlight">특수 장소의 세부 수치 규격</span>입니다. 계산 문제 유형 및 맞는 규격을 고르는 형태로 출제됩니다.</p>
+        <p>전기설비 기술기준에서 합격 점수를 확보하기 위해 1탄에 이어 추가적으로 반드시 기억해야 할 법규 수치들을 모았습니다.</p>
 
-        <p>• <span class="highlight">1. 전선관 및 덕트 내 전선 수용 비율 (%)</span></p>
-        <p>관이나 덕트 내부에 전선을 통과시킬 때, 방열과 작업성을 위해 전선의 총 단면적(피복 포함)이 관 내부 단면적의 일정 비율을 넘지 않도록 제한하는 수치입니다.</p>
+        <p style="margin-top: 25px;">• <span class="highlight">1. 합성수지관(PVC) 공사 굵기 및 삽입 깊이</span></p>
+        <p>관을 서로 연결하거나 박스에 끼울 때 유지해야 하는 정밀한 규격 수치입니다.</p>
         <div class="formula-box">
-            • 금속관/합성수지관 (서로 다른 굵기의 전선): 관 단면적의 <span class="highlight">32 %</span> 이하<br>
-            • 금속관/합성수지관 (동일한 굵기의 전선): 관 단면적의 <span class="highlight">48 %</span> 이하<br>
-            • 금속덕트 내부 수용 비율 (일반 배선): 덕트 단면적의 <span class="highlight">20 %</span> 이하<br>
-            • 금속덕트 내부 수용 비율 (제어회로용 전선 등): 덕트 단면적의 <span class="highlight">50 %</span> 이하
+            • 합성수지관의 최소 두께: <span class="highlight">2 mm</span> 이상<br>
+            • 관 상호간 삽입 깊이 (일반적인 경우): 관 바깥지름의 <span class="highlight">1.2배</span> 이상<br>
+            • 접착제(접착제 사용 시)를 사용하는 경우 삽입 깊이: 관 바깥지름의 <span class="highlight">0.8배</span> 이상
         </div>
 
-        <p style="margin-top: 25px;">• <span class="highlight">2. 위험 장소 및 폭방성/분진 장소의 수치 기준</span></p>
-        <p>화약고, 가스 충전소 등 폭발이나 화재 위험이 높은 특수 장소의 배선 설계 기준 수치입니다.</p>
+        <p style="margin-top: 25px;">• <span class="highlight">2. 가요전선관(자바라) 및 금속관 공사 굵기 기준</span></p>
+        <p>동일한 관 내부에 여러 가닥의 전선을 통과시킬 때 적용하는 단면적 제한 비율입니다.</p>
         <div class="formula-box">
-            • 화약고 등 위험장소의 옥내 배선 사용전압: <span class="highlight">300 V</span> 이하<br>
-            • 가연성 가스가 체류하는 곳의 금속관 공사: 관 나사산 조임 <span class="highlight">5턱</span> 이상<br>
-            • 흥행장(극장 등) 무대 배선의 전선 최소 굵기: 연동선 <span class="highlight">1.5 mm²</span> 이상<br>
-            • 흥행장 무대용 콘센트/박스 금속제 외함 접지: <span class="highlight">400 V</span> 미만 저압 기준 적용
+            • 일반적인 경우 (굵기가 다른 전선 혼용 시): 관 내부 단면적의 <span class="highlight">32 %</span> 이하까지만 전선을 채워야 함<br>
+            • 제어회로용 전선이나 동일한 굵기의 전선을 넣는 경우: 최대 <span class="highlight">48 %</span> 이하까지 허용
         </div>
 
-        <p style="margin-top: 25px;">• <span class="highlight">3. 전선관 가공 및 두께 규격</span></p>
-        <p>금속관 및 합성수지관 자체의 규격과 변형 가공 시 지켜야 할 안전 수치입니다.</p>
+        <p style="margin-top: 25px;">• <span class="highlight">3. 위험성이 높은 특수장소 공사 제한 수치</span></p>
+        <p>폭발성 분진이나 가스가 존재하는 유해 장소에서 허용되는 안전 공사법 규정입니다.</p>
         <div class="formula-box">
-            • 금속전선관의 표준 길이 (단성 교류 전선관 기준): <span class="highlight">3.66 m</span><br>
-            • 합성수지전선관(CD관, 고경질비닐관)의 표준 길이: <span class="highlight">4.0 m</span><br>
-            • 콘크리트에 매설하는 전선관의 최소 두께 규격: <span class="highlight">1.2 mm</span> 이상<br>
+            • 폭발성 분진이 있는 위험 장소의 저압 옥내배선: <span class="highlight">금속관 공사</span> 또는 <span class="highlight">케이블 공사</span>만 가능<br>
             • 전선관을 구부릴 때 단면의 변형: 관 안지름의 <span class="highlight">95 %</span> 이상 유지 (5% 미만 감소)
         </div>
 
@@ -160,7 +162,7 @@
             &nbsp;&nbsp;- 규정에 따라 <span class="highlight">30 cm (0.3m)</span> 이상 가산하여 깊게 매설
         </div>
 
-        <a href="../index.html" class="btn-back">메인으로</a>
+        <a href="../archive.html" class="btn-back">🗄️ 다른 보충설명 보러가기 (보관소)</a>
     </div>
 
     <script>

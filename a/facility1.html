@@ -10,13 +10,13 @@
             --bg-color: #f8f9fa;
             --card-bg: #ffffff;
             --text-color: #212529;
-            --primary-color: #4da6ff;
-            --accent-color: #e6f2ff;
+            --primary-color: #212529; /* 파란색 대신 검은색으로 변경 */
+            --accent-color: #e9ecef;   /* 연한 파란색 배경을 차분한 회색으로 변경 */
             --border-color: #e9ecef;
-            --btn-bg: #f1f3f5;
-            --btn-text: #495057;
+            --btn-bg: #212529;         /* 하단 버튼 배경을 검은색으로 변경 */
+            --btn-text: #ffffff;       /* 하단 버튼 글자색을 흰색으로 변경 */
             --meta-link: #868e96;
-            --title-color: #0056b3;
+            --title-color: #212529;    /* 대제목 색상을 검은색으로 변경 */
         }
 
         /* 다크모드 전용 색상 세트 (기존 디자인과 완벽 동기화) */
@@ -24,13 +24,13 @@
             --bg-color: #121212;
             --card-bg: #1e1e1e;
             --text-color: #e0e0e0;
-            --primary-color: #3793ff;
-            --accent-color: #2c3e50;
+            --primary-color: #e0e0e0; /* 다크모드 시 파란색 대신 밝은 회색/흰색 */
+            --accent-color: #2c2c2c;   /* 다크모드에 맞는 어두운 회색 배경 */
             --border-color: #333333;
-            --btn-bg: #2d3238;
-            --btn-text: #ced4da;
+            --btn-bg: #ced4da;         /* 다크모드 시 버튼 배경 */
+            --btn-text: #121212;       /* 다크모드 시 버튼 글자색 */
             --meta-link: #868e96;
-            --title-color: #4da6ff;
+            --title-color: #e0e0e0;    /* 대제목 색상을 밝은 회색으로 변경 */
         }
 
         body {
@@ -80,25 +80,24 @@
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 8px;
         }
-
-        /* 핵심 수치 강조 박스용 스타일 */
-        .formula-box {
-            background-color: var(--accent-color);
-            padding: 12px;
-            border-radius: 8px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            font-weight: 700;
-            color: var(--title-color);
-            text-align: left;
-            margin: 15px 0;
-            border-left: 4px solid var(--primary-color);
-        }
-
         p {
             font-size: 0.95rem;
             line-height: 1.6;
             margin: 12px 0;
         }
+
+        /* 수식 및 강조 박스 */
+        .formula-box {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* 빨간색 강조 스타일 유지 */
         .highlight {
             font-weight: bold;
             color: #dc3545;
@@ -108,9 +107,17 @@
         }
 
         .btn-back {
-            display: inline-block; width: 100%; text-align: center; background: var(--btn-bg);
-            color: var(--btn-text); padding: 12px 0; border-radius: 8px;
-            font-size: 0.9rem; font-weight: 600; text-decoration: none; margin-top: 15px; box-sizing: border-box;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            padding: 12px 0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 25px;
         }
     </style>
 </head>
@@ -121,35 +128,27 @@
     </div>
 
     <div class="container">
-        <h1>전기설비 필수 암기 수치</h1>
+        <h1>📐 전기설비 필수 암기 수치(숫자) 총정리</h1>
 
-        <p>전기설비 과목은 문제에서 <span class="highlight">정확한 법적 규격 수치(숫자)</span>를 오답으로 바꾸어 출제하는 경향이 매우 강합니다. 시험장에 들어가기 전 반드시 눈에 익혀야 할 핵심 수치들을 파트별로 묶어 정리했습니다.</p>
+        <p>전기설비 과목은 계산 문제보다 법규에 정해진 '정확한 숫자 기준'을 고르는 문제가 압도적으로 많이 출제됩니다. 시험 직전 반드시 외워야 할 빈출 수치들을 정리했습니다.</p>
 
-        <p>• <span class="highlight">1. 주요 전선관 및 케이블의 지지점 거리</span></p>
-        <p>배선 공사 시 전선관이나 케이블이 처지지 않도록 고정하는 지지점 간의 최대 거리입니다. 매회 최소 1문제 이상 무조건 출제되는 단골 영역입니다.</p>
+        <p style="margin-top: 25px;">• <span class="highlight">1. 옥내 배선 공사 전선 굵기 및 제한 기준</span></p>
+        <p>건물 내부 배선 공사를 할 때 사용해야 하는 전선의 최소 기준 수치입니다.</p>
         <div class="formula-box">
-            • 가요전선관 공사: <span class="highlight">1.0 m</span> 이하<br>
-            • 합성수지관 공사: <span class="highlight">1.5 m</span> 이하<br>
-            • 금속관 공사 / 케이블 공사: <span class="highlight">2.0 m</span> 이하<br>
-            • 금속덕트 공사: <span class="highlight">3.0 m</span> 이하 (수직 설치 시 6m)
+            • 일반적인 옥내 배선 연동선 굵기: <span class="highlight">2.5 mm²</span> 이상 (정격 전압 저압 기준)<br>
+            • 정격 전압 제한: 옥내 배선의 대지전압은 최대 <span class="highlight">300 V</span> 이하로 제한
         </div>
 
-        <p style="margin-top: 25px;">• <span class="highlight">2. 가공전선 및 매설 깊이 수치</span></p>
-        <p>도로나 철도를 지나가는 전선의 높이와 안전을 위한 최소 매설 깊이 기준입니다.</p>
+        <p style="margin-top: 25px;">• <span class="highlight">2. 전선관 공사 시 굴곡 반경 수치</span></p>
+        <p>전선관을 구부릴 때 전선이 손상되지 않도록 하기 위한 곡률 기준입니다.</p>
         <div class="formula-box">
-            • 저압 가공전선의 철도 횡단 높이: 레일 면상 <span class="highlight">6.5 m</span> 이상<br>
-            • 저압 가공전선의 일반 도로 횡단 높이: 지표상 <span class="highlight">5.0 m</span> 이상<br>
-            • 접지극의 지하 매설 깊이: 지표면으로부터 <span class="highlight">75 cm (0.75m)</span> 이상
+            • 전선관 굴곡 반경: 전선관 안지름의 <span class="highlight">6배</span> 이상으로 구부려야 함
         </div>
 
-        <p style="margin-top: 25px;">• <span class="highlight">3. 옥내배선 및 특수 장소 수치</span></p>
-        <p>일반 가정집이나 물기가 있는 특수 장소에 적용되는 기준입니다.</p>
+        <p style="margin-top: 25px;">• <span class="highlight">3. 타임스위치(점멸기) 소등 시간 기준</span></p>
+        <p>현관이나 현관 계단 등에 설치하는 타임스위치의 자동으로 꺼지는 시간 기준입니다.</p>
         <div class="formula-box">
-            • 일반 주거용 옥내배선 전선 최소 굵기: 연동선 <span class="highlight">2.5 mm²</span> 이상<br>
-            • 목욕탕·욕실 등 물기 장소 인체감전보호용 누전차단기:<br>
-            &nbsp;&nbsp;- 정격감도전류 <span class="highlight">15 mA</span> 이하 / 동작시간 <span class="highlight">0.03초</span> 이하<br>
-            • 현관 및 호텔 타임스위치 소등 시간:<br>
-            &nbsp;&nbsp;- 주택(가정용): <span class="highlight">3분</span> 이내 / 숙박업소(호텔): <span class="highlight">1분</span> 이내
+            • 일반 주택 및 아파트: 시설 후 <span class="highlight">3분</span> 이내 / 숙박업소(호텔): <span class="highlight">1분</span> 이내
         </div>
 
         <p style="margin-top: 25px;">• <span class="highlight">4. 지선(支線) 관련 기준 수치</span></p>
@@ -160,7 +159,7 @@
             • 지선에 사용하는 소선(가닥): 직경 <span class="highlight">2.6 mm</span> 이상의 금속선 <span class="highlight">3가닥</span> 이상 꼬아서 사용
         </div>
 
-        <a href="../index.html" class="btn-back">메인으로</a>
+        <a href="../archive.html" class="btn-back">🗄️ 다른 보충설명 보러가기 (보관소)</a>
     </div>
 
     <script>

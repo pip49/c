@@ -10,13 +10,13 @@
             --bg-color: #f8f9fa;
             --card-bg: #ffffff;
             --text-color: #212529;
-            --primary-color: #4da6ff;
-            --accent-color: #e6f2ff;
+            --primary-color: #212529; /* 파란색 대신 검은색으로 변경 */
+            --accent-color: #e9ecef;   /* 연한 파란색 배경을 차분한 회색으로 변경 */
             --border-color: #e9ecef;
-            --btn-bg: #f1f3f5;
-            --btn-text: #495057;
+            --btn-bg: #212529;         /* 하단 버튼 배경을 검은색으로 변경 */
+            --btn-text: #ffffff;       /* 하단 버튼 글자색을 흰색으로 변경 */
             --meta-link: #868e96;
-            --title-color: #0056b3;
+            --title-color: #212529;    /* 대제목 색상을 검은색으로 변경 */
         }
 
         /* 다크모드 전용 색상 세트 (기존 디자인과 완벽 동기화) */
@@ -24,13 +24,13 @@
             --bg-color: #121212;
             --card-bg: #1e1e1e;
             --text-color: #e0e0e0;
-            --primary-color: #3793ff;
-            --accent-color: #2c3e50;
+            --primary-color: #e0e0e0; /* 다크모드 시 파란색 대신 밝은 회색/흰색 */
+            --accent-color: #2c2c2c;   /* 다크모드에 맞는 어두운 회색 배경 */
             --border-color: #333333;
-            --btn-bg: #2d3238;
-            --btn-text: #ced4da;
+            --btn-bg: #ced4da;         /* 다크모드 시 버튼 배경 */
+            --btn-text: #121212;       /* 다크모드 시 버튼 글자색 */
             --meta-link: #868e96;
-            --title-color: #4da6ff;
+            --title-color: #e0e0e0;    /* 대제목 색상을 밝은 회색으로 변경 */
         }
 
         body {
@@ -80,25 +80,24 @@
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 8px;
         }
-
-        /* 암기 박스용 스타일 */
-        .formula-box {
-            background-color: var(--accent-color);
-            padding: 12px;
-            border-radius: 8px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            font-weight: 700;
-            color: var(--title-color);
-            text-align: left;
-            margin: 15px 0;
-            border-left: 4px solid var(--primary-color);
-        }
-
         p {
             font-size: 0.95rem;
             line-height: 1.6;
             margin: 12px 0;
         }
+
+        /* 수식 및 강조 박스 */
+        .formula-box {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* 빨간색 강조 스타일 유지 */
         .highlight {
             font-weight: bold;
             color: #dc3545;
@@ -108,9 +107,17 @@
         }
 
         .btn-back {
-            display: inline-block; width: 100%; text-align: center; background: var(--btn-bg);
-            color: var(--btn-text); padding: 12px 0; border-radius: 8px;
-            font-size: 0.9rem; font-weight: 600; text-decoration: none; margin-top: 15px; box-sizing: border-box;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            padding: 12px 0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 25px;
         }
     </style>
 </head>
@@ -121,34 +128,30 @@
     </div>
 
     <div class="container">
-        <h1>전기설비 필수 암기 자재 및 공구</h1>
+        <h1>🔧 전기설비 필수 암기 자재 및 공구 총정리</h1>
 
-        <p>전기설비 공사 파트에서는 수치(숫자) 외에도 <span class="highlight">특정 시공 상황에 쓰이는 자재 및 공구의 명칭</span>을 매칭하는 문제가 매우 자주 출제됩니다. 용도별로 확실하게 정리해 두어야 헷갈리지 않습니다.</p>
+        <p>전기설비 과목에서 그림이나 명칭으로 가장 자주 출제되는 핵심 자재와 공구들을 직관적인 문장으로 요약 정리했습니다.</p>
 
-        <p>• <span class="highlight">1. 전선관 공사 필수 부속품 (금속관/가요전선관)</span></p>
-        <p>관을 연결하거나 고정할 때, 또는 전선의 피복을 보호하기 위해 사용하는 핵심 부속품들입니다.</p>
+        <p style="margin-top: 25px;">• <span class="highlight">1. 전선관 공사 핵심 공구</span></p>
+        <p>전선관을 구부리거나 자르고, 다듬을 때 사용하는 도구들의 고유 명칭과 용도를 구별해야 합니다.</p>
         <div class="formula-box">
-            • <span class="highlight">부싱 (Bushing)</span>: 금속관 끝부분에 끼워 전선을 넣고 뺄 때 전선의 피복이 손상되는 것을 방지합니다.<br>
-            • <span class="highlight">로크너트 (Lock Nut)</span>: 전선관을 아웃렛 박스에 단단히 고정하기 위해 안팎으로 체결하는 너트입니다.<br>
-            • <span class="highlight">콤비네이션 커플링</span>: 성질이 다른 <span class="highlight">금속관과 가요전선관</span> 상호 간을 연결할 때 사용합니다.<br>
-            • <span class="highlight">스플릿 커플링</span>: 가요전선관과 가요전선관 상호 간을 접속할 때 사용합니다.
+            • <span class="highlight">파이프 커터</span>: 금속관 또는 합성수지관을 절단할 때 사용<br>
+            • <span class="highlight">리머 (Reamer)</span>: 전선관을 절단한 후, 관 안쪽 날카로운 단면(바리)을 매끄럽게 다듬어 전선의 피복 손상을 방지하는 공구<br>
+            • <span class="highlight">파이프 벤더 (히키, Hickey)</span>: 금속 전선관을 원하는 각도로 구부릴(곡공) 때 사용하는 도구
         </div>
 
-        <p style="margin-top: 25px;">• <span class="highlight">2. 시공 및 작업용 필수 공구</span></p>
-        <p>전선관 가공이나 배선 작업 시 사용되는 전문 공구의 용도 정의입니다.</p>
+        <p style="margin-top: 25px;">• <span class="highlight">2. 아웃렛 박스와 연결 자재</span></p>
+        <p>박스와 전선관이 만나는 지점에 시설하는 부속품들의 정확한 쓰임새가 자주 나옵니다.</p>
         <div class="formula-box">
-            • <span class="highlight">볼트 클리퍼 (Bolt Clipper)</span>: 굵은 전선이나 철선을 힘주어 절단할 때 사용하는 공구입니다.<br>
-            • <span class="highlight">녹아웃 펀치 (Knockout Punch)</span>: 배전반이나 박스에 전선관을 넣을 구멍(노크아웃 구멍)을 뚫을 때 사용합니다.<br>
-            • <span class="highlight">히커 (Hickey)</span>: 금속전선관을 원하는 각도로 구부릴(벤딩) 때 사용하는 공구입니다.<br>
-            • <span class="highlight">와이어 스트리퍼</span>: 전선의 절연 피복을 쉽고 깨끗하게 벗겨내기 위해 사용하는 공구입니다.
+            • <span class="highlight">로크너트 (Lock Nut)</span>: 전선관을 아웃렛 박스에 단단히 고정하기 위해 관 양쪽에 체결하는 너트<br>
+            • <span class="highlight">부싱 (Bushing)</span>: 전선관 끝단 인출구에 끼워, 전선을 집어넣거나 뺄 때 관의 날카로운 모서리에 전선 피복이 찢어지지 않도록 보호하는 부속품<br>
+            • <span class="highlight">커플링 (Coupling)</span>: 길이가 정해진 전선관과 전선관을 서로 직선으로 길게 연결할 때 사용하는 소켓 형태의 자재
         </div>
 
-        <p style="margin-top: 25px;">• <span class="highlight">3. 전로의 계측 및 측정 장비</span></p>
-        <p>공사 완료 후 검사하거나 유지 보수할 때 사용하는 필수 계측기 종류입니다.</p>
+        <p style="margin-top: 25px;">• <span class="highlight">3. 전선 인입용 특수 공구</span></p>
+        <p>이미 시공된 전선관 내부로 전선을 쉽게 통과시키기 위한 필수 기구입니다.</p>
         <div class="formula-box">
-            • <span class="highlight">절연저항계 (메거, Megger)</span>: 전로의 절연 상태(누전 여부)를 확인하기 위해 절연저항을 측정하는 계측기입니다.<br>
-            • <span class="highlight">어스 테스터 (Earth Tester)</span>: 접지공사 후 접지극의 접지저항 값을 측정하기 위해 사용하는 계측기입니다.<br>
-            • <span class="highlight">클램프 미터 (Clamp Meter)</span>: 회로를 끊지 않고(전선을 자르지 않고) 걸어두기만 해도 전류를 측정할 수 있는 장비입니다.
+            • <span class="highlight">스틸 와이어 (낚시줄, Fish Tape)</span>: 전선관 내부에 전선을 넣을 때, 먼저 관 속에 밀어 넣어 반대편으로 관통시킨 후 전선을 묶어 잡아당기는 탄력 있는 강철선/플라스틱 선
         </div>
 
         <p style="margin-top: 25px;">• <span class="highlight">4. 약호로 출제되는 전선 종류</span></p>
@@ -157,10 +160,10 @@
             • <span class="highlight">OW 전선</span>: 옥외용 비닐 절연 전선 (Out-door Wire)<br>
             • <span class="highlight">IV 전선</span>: 옥내용 비닐 절연 전선 (Indoor Wire)<br>
             • <span class="highlight">DV 전선</span>: 인입용 비닐 절연 전선 (Drop-wire)<br>
-            • <span class="highlight">VV 케이블</span>: 비닐 절연 비닐 시스 케이블 (VinyI VinyI)
+            • <span class="highlight">VV 케이블</span>: 비닐 절연 비닐 시스 케이블 (Vinyl Vinyl)
         </div>
 
-        <a href="../index.html" class="btn-back">메인으로</a>
+        <a href="../archive.html" class="btn-back">🗄️ 다른 보충설명 보러가기 (보관소)</a>
     </div>
 
     <script>
