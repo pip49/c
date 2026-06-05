@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보충설명: 한눈에 이해하는 변압기 핵심 요약</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --primary-color: #212529;
+            --accent-color: #f1f3f5;
+            --border-color: #dee2e6;
+            --btn-bg: #212529;
+            --btn-text: #ffffff;
+            --meta-link: #868e96;
+            --title-color: #212529;
+        }
+
+        /* 다크모드 설정 */
+        body.dark-mode {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --primary-color: #e0e0e0;
+            --accent-color: #2c2c2c;
+            --border-color: #333333;
+            --btn-bg: #ced4da;
+            --btn-text: #121212;
+            --meta-link: #868e96;
+            --title-color: #e0e0e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .top-bar {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+        .theme-btn {
+            background: none;
+            border: none;
+            font-size: 0.75rem;
+            color: var(--meta-link);
+            cursor: pointer;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 1.3rem;
+            color: var(--title-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .visual-box {
+            background-color: var(--accent-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .formula {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
+            padding: 8px;
+            border-top: 1px dashed var(--border-color);
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .grid-item {
+            background: var(--card-bg);
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #dc3545;
+        }
+        body.dark-mode .highlight {
+            color: #ff6b6b;
+        }
+
+        .btn-back {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            padding: 12px 0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <button onclick="toggleDarkMode()" id="theme-btn" class="theme-btn">◐ 다크모드</button>
+    </div>
+
+    <div class="container">
+        <h1>⚡ 핵심 요약: 변압기(Transformer) 원리 및 특성</h1>
+
+        <div class="section-title">📐 1. 변압기의 원리와 권수비 공식</div>
+        <p>변압기는 전자기 유도 현상(<span class="highlight">패러데이 법칙</span>)을 이용하며, 감은 횟수에 따라 전압과 전류가 변합니다.</p>
+        <div class="visual-box">
+            <div class="formula">권수비 (a) = N₁/N₂ = V₁/V₂ = I₂/I₁</div>
+            <div style="line-height: 1.6; margin-top: 5px;">
+                • <b>N (권수) 및 V (전압):</b> 1차와 2차가 <span class="highlight">정비례</span> 관계<br>
+                • <b>I (전류):</b> 전압과 반대로 1차와 2차가 <span class="highlight">반비례</span> 관계 (전압이 높으면 전류는 작아짐)
+            </div>
+        </div>
+
+        <div class="section-title">🧱 2. 변압기의 손실 이해 (철손과 동손)</div>
+        <p>변압기 가동 시 전기가 열로 바뀌어 날아가는 내부의 핵심 손실 유형입니다.</p>
+        <div class="visual-box">
+            <div class="grid-2">
+                <div class="grid-item">
+                    <b>철손 (Iron Loss)</b><br>🔽<br>
+                    가운데 <span class="highlight">철심</span>에서 발생<br>
+                    부하와 관계없이 항상 일정<br>
+                    <b>[고정 손실]</b>
+                </div>
+                <div class="grid-item">
+                    <b>동손 (Copper Loss)</b><br>🔽<br>
+                    감겨있는 <span class="highlight">구리선</span>에서 발생<br>
+                    전기 쓸 때 전류에 의해 변함<br>
+                    <b>[가변 손실]</b>
+                </div>
+            </div>
+            <div style="margin-top: 12px; line-height: 1.6; padding: 8px; background: var(--card-bg); border-radius: 4px; border: 1px solid var(--border-color);">
+                • <b>철손 방지법:</b> 히스테리시스손은 <span class="highlight">규소 강판</span> 사용, 와류손은 <span class="highlight">성층 철심</span>을 사용하여 방지합니다.<br>
+                • <b>동손의 특성:</b> 전류의 <b>제곱($I^2$)에 비례</b>하여 발생하므로 전기를 많이 쓸수록 급격하게 커집니다.
+            </div>
+        </div>
+
+        <div class="section-title">🔍 3. 등가회로 완성을 위한 필수 시험</div>
+        <p>변압기의 철손과 동손을 알아내기 위해 시행하는 두 가지 핵심 실무 시험법입니다.</p>
+        <div class="visual-box">
+            <div class="grid-2">
+                <div class="grid-item">
+                    <b>무부하 시험</b><br>(개방 시험)<br>🔽<br>부하를 안 쓰고<br>안전하게 <span class="highlight">철손</span> 측정
+                </div>
+                <div class="grid-item">
+                    <b>단락 시험</b><br>(부하 시험)<br>🔽<br>강제로 전류를 흘려<br><span class="highlight">동손</span> 및 임피던스 측정
+                </div>
+            </div>
+            <div style="margin-top: 12px; line-height: 1.6; padding: 8px; background: var(--card-bg); border-radius: 4px; border: 1px solid var(--border-color);">
+                💡 <b>시험 정답 팁:</b> 변압기의 효율이 가장 좋을 때(최대 효율 조건)는 부하 상태와 관계없이 언제나 <b><span class="highlight">철손 = 동손</span></b>이 같아지는 순간입니다.
+            </div>
+        </div>
+
+        <div class="section-title">🛡️ 4. 변압기 내부 고장 보호 장치</div>
+        <p>변압기 내부에 합선 등의 고장이 생겼을 때 변압기를 안전하게 보호하기 위해 설치하는 계전기 시스템입니다.</p>
+        <div class="visual-box">
+            <div style="line-height: 1.7;">
+                • <span class="highlight">부홀즈 계전기 (Buchholz):</span> 주탱크와 콘서베이터 사이 배관에 설치하며, 고장 시 발생하는 <span class="highlight">가스의 압력과 유속</span>을 검지 (기계적 보호)<br>
+                • <span class="highlight">비율차동 계전기:</span> 1차측 전류와 2차측 전류의 <span class="highlight">벡터 차이</span>가 일정 비율 이상이 되면 작동 (전기적 보호)
+            </div>
+        </div>
+
+        <a href="../archive.html" class="btn-back">🗄️ 다른 보충설명 보러가기 (보관소)</a>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            const isDark = document.body.classList.toggle('dark-mode');
+            const btn = document.getElementById('theme-btn');
+            if (isDark) {
+                btn.innerText = "☀️ 라이트모드";
+                localStorage.setItem('theme', 'dark');
+            } else {
+                btn.innerText = "◐ 다크모드";
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('theme-btn').innerText = "☀️ 라이트모드";
+            }
+        });
+    </script>
+</body>
+</html>
